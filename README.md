@@ -1,8 +1,8 @@
 # IBM-RPA
 IBM Robotic Process Automation
 
-<h1>Modelo de estrutura base de Arquivos</h1> 
-<h3>Com tratamento de erro e base de dados para log</h3> 
+<h1>Modelo base de Script</h1> 
+<h3>Contém tratamento de erro e base de dados para log</h3> 
 
 <p align="center">
    <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
