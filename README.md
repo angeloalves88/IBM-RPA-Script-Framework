@@ -9,7 +9,7 @@ IBM Robotic Process Automation
  <!--  <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>-->
 </p>
 
-> Status do Projeto: :heavy_check_mark: :warning: (concluido, em desenvolvimento, etc)
+> Status do Projeto: :heavy_check_mark: :warning: em desenvolvimento
 
 ### Tópicos 
 
