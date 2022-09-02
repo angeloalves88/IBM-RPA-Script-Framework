@@ -30,8 +30,13 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
 ## Descrição do projeto 
 
 <p align="justify">
-  Descrição breve do projeto compondo um paragrafo ou dois. 
+   Quando uma empresa inicia com a automação ela não tem nenhum documento de boas práticas criado para o desenvolvimento de robô, muito menos um modelo para ser utilizado como base para o desenvolvimento do seu primeiro bot. Neste documento vou demonstrar um modelo de script, com um log de monitoramento local, e vou aproveitar para falar de nomenclatura de scripts, rotinas, e variaveis. 
 </p>
+
+
+
+===============================
+No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter uma base de dados para utilizar no projeto. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o IBM RPA consumir, por conta de suas políticas internas. Neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite.
 
 ## Funcionalidades
 
