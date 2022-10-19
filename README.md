@@ -42,7 +42,7 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
 
 Será utilizado esta rotina toda a vez que formos registrar alguma mensagem no log, basicamente obtem a data/hora atual, conecta no DB e executa a query com os dados recebidos na chamada da sub rotina.
 
-<h5>script</h5>
+<h5><script></h5>
 
 ```
 beginSub --name __RegisteringLog
@@ -53,26 +53,28 @@ beginSub --name __RegisteringLog
 	sqlDisconnect --connection ${conBd}
 endSub
 ```
-
+	
+<h5><designer></h5>
+	
 ![image](https://user-images.githubusercontent.com/46223364/196575429-69d51812-0465-481a-bd8e-75276de4e147.png)
 
 
-Os dados que iremos inserir na tabela
+A query com os variaveis que serão inseridos na tabela.
 
-![image](https://user-images.githubusercontent.com/46223364/196576959-43c0dcce-bd38-42d8-b2ca-0a747c541e55.png)
+	![image](https://user-images.githubusercontent.com/46223364/196576959-43c0dcce-bd38-42d8-b2ca-0a747c541e55.png)
 
 - dateTimeNow > Obtem o valor toda a vez que é executado a rotina
 - _project and _script > Definido na rotina Initializing
 
-![image](https://user-images.githubusercontent.com/46223364/196580625-f0e4354c-9357-4a09-b624-f9cd547a620f.png)
+	![image](https://user-images.githubusercontent.com/46223364/196580625-f0e4354c-9357-4a09-b624-f9cd547a620f.png)
 
 - _logType, _registerId and _logMessage > Informado no comando 'Run SubRoutine(goSub)'
 
-![image](https://user-images.githubusercontent.com/46223364/196580558-cbf7acc1-add6-4d95-8a05-829b5c1e501f.png)
+	![image](https://user-images.githubusercontent.com/46223364/196580558-cbf7acc1-add6-4d95-8a05-829b5c1e501f.png)
 
 - _logErrorSubRoutine, _logErrorLine, _logErrorMessage, and _logPathScreenshot > Informado no comando 'Run SubRoutine(goSub)' da rotina __ErrorHandling
 
-![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
+	![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
 
 =====
 
