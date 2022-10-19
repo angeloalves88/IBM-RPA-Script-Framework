@@ -40,10 +40,9 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
    No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter um banco de dados para ser utilizado nos projetos. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o uso do IBM RPA, por conta de suas políticas internas. Por conta deste cenário neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite. Caso tenha uma instância de banco de dados disponível, basta apenas trocar o comando de conexão com o banco de dados.
 </p>
 
-Será utilizado esta rotina toda a vez que formos registrar alguma mensagem no log
-![image](https://user-images.githubusercontent.com/46223364/196575429-69d51812-0465-481a-bd8e-75276de4e147.png)
+Será utilizado esta rotina toda a vez que formos registrar alguma mensagem no log, basicamente obtem a data/hora atual, conecta no DB e executa a query com os dados recebidos na chamada da sub rotina.
 
-<h5>code</h5>
+<h5>script</h5>
 
 ```
 beginSub --name __RegisteringLog
@@ -54,6 +53,9 @@ beginSub --name __RegisteringLog
 	sqlDisconnect --connection ${conBd}
 endSub
 ```
+
+![image](https://user-images.githubusercontent.com/46223364/196575429-69d51812-0465-481a-bd8e-75276de4e147.png)
+
 
 Os dados que iremos inserir na tabela
 
