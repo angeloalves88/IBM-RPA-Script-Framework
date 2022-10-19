@@ -27,16 +27,52 @@ IBM Robotic Process Automation
 
 Insira os tópicos do README em links para facilitar a navegação do leitor
 
-## Descrição do projeto 
+## Introdução 
 
 <p align="justify">
-   Quando uma empresa inicia com a automação ela não tem nenhum documento de boas práticas criado para o desenvolvimento de robô, muito menos um modelo para ser utilizado como base para o desenvolvimento do seu primeiro bot. Neste documento vou demonstrar um modelo de script, com um log de monitoramento local, e vou aproveitar para falar de nomenclatura de scripts, rotinas, e variaveis. 
+   Quando uma empresa inicia a sua Jornada de Automação de Processos, normalmente ela não possui documentação de boas práticas para ser seguida como padrão dos projetos a serem implementados, muito menos um script base, com uma estrutura inicial criada para o inicio do desenvolvimento dos seus bots.
+   Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus bots, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
 </p>
 
+## Estrutura de Log 
 
+<p align="justify">
+   No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter um banco de dados para ser utilizado nos projetos. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o uso do IBM RPA, por conta de suas políticas internas. Por conta deste cenário neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite. Caso tenha uma instância de banco de dados disponível, basta apenas trocar o comando de conexão com o banco de dados.
+</p>
 
-===============================
-No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter uma base de dados para utilizar no projeto. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o IBM RPA consumir, por conta de suas políticas internas. Neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite.
+Será utilizado esta rotina toda a vez que formos registrar alguma mensagem no log
+![image](https://user-images.githubusercontent.com/46223364/196575429-69d51812-0465-481a-bd8e-75276de4e147.png)
+
+<h5>code</h5>
+
+```
+beginSub --name __RegisteringLog
+	replaceText --texttoparse "${_logMessage}" --textpattern "\'" _logMessage=value
+	getCurrentDateAndTime --localorutc "LocalTime" dateTimeNow=value
+	sqliteConnect --connectionString "Data Source=${pathDataBase};Version=3;" conBd=connection success=success
+	sqlExecute --connection ${conBd} --statement "INSERT INTO IBMRPA_LOG (\r\n   LOGDATE, PROJECT, SCRIPT,\r\n   LOGTYPE,REGISTERID,MESSAGE,\r\n   ERRORSUBROUTINE,ERRORLINE,\r\n   ERRORMESSAGE,PATHSCREENSHOT\r\n)\r\nVALUES (\r\n   \'${dateTimeNow}\',\'${_project}\',\'${_script}\',\r\n   \'${_logType}\',\'${_registerId}\',\'${_logMessage}\',\r\n   \'${_logErrorSubRoutine}\',\'${_logErrorLine}\',\r\n   \'${_logErrorMessage}\',\'${_logPathScreenshot}\'\r\n);" insertedRows=value
+	sqlDisconnect --connection ${conBd}
+endSub
+```
+
+Os dados que iremos inserir na tabela
+
+![image](https://user-images.githubusercontent.com/46223364/196576959-43c0dcce-bd38-42d8-b2ca-0a747c541e55.png)
+
+- dateTimeNow > Obtem o valor toda a vez que é executado a rotina
+- _project and _script > Definido na rotina Initializing
+
+![image](https://user-images.githubusercontent.com/46223364/196580625-f0e4354c-9357-4a09-b624-f9cd547a620f.png)
+
+- _logType, _registerId and _logMessage > Informado no comando 'Run SubRoutine(goSub)'
+
+![image](https://user-images.githubusercontent.com/46223364/196580558-cbf7acc1-add6-4d95-8a05-829b5c1e501f.png)
+
+- _logErrorSubRoutine, _logErrorLine, _logErrorMessage, and _logPathScreenshot > Informado no comando 'Run SubRoutine(goSub)' da rotina __ErrorHandling
+
+![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
+
+=====
 
 ## Funcionalidades
 
