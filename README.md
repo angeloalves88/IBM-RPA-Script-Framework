@@ -34,11 +34,31 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
    Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus bots, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
 </p>
 
-## Estrutura de Log 
+## Monitoramento
 
 <p align="justify">
    No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter um banco de dados para ser utilizado nos projetos. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o uso do IBM RPA, por conta de suas políticas internas. Por conta deste cenário neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite. Caso tenha uma instância de banco de dados disponível, basta apenas trocar o comando de conexão com o banco de dados.
 </p>
+
+## Estrutura Data Base 
+
+```
+CREATE TABLE IBMRPA_LOG (
+    ID              INTEGER       PRIMARY KEY AUTOINCREMENT,
+    LOGDATE         DATETIME      NOT NULL,
+    PROJECT         INTEGER       NOT NULL,
+    SCRIPT          INTEGER       NOT NULL,
+    LOGTYPE         VARCHAR       NOT NULL,
+    REGISTERID      VARCHAR,
+    MESSAGE         VARCHAR (255) NOT NULL,
+    ERRORSUBROUTINE VARCHAR,
+    ERRORLINE       INTEGER,
+    ERRORMESSAGE    VARCHAR,
+    PATHSCREENSHOT  VARCHAR
+);
+```
+
+## Estrutura do Script  
 
 Será utilizado esta rotina toda a vez que formos registrar alguma mensagem no log, basicamente obtem a data/hora atual, conecta no DB e executa a query com os dados recebidos na chamada da sub rotina.
 
@@ -76,6 +96,12 @@ A query com os variaveis que serão inseridos na tabela.
 
 	![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
 
+	
+## Estrutura do Tratamento de erro 	
+	
+	![image](https://user-images.githubusercontent.com/46223364/196754693-3bbef8da-6ce3-4ee8-840f-c59dcdb4ecfd.png)
+
+	
 =====
 
 ## Funcionalidades
