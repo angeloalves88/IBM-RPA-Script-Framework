@@ -1,14 +1,14 @@
-# IBM RPA - IBM Robotic Process Automation
 
-<h1>Template para desenvolvimento</h1> 
-<h3>Contém tratamento de erro e base de dados para log</h3> 
+# Template para desenvolvimento
+
+	
+<h2>IBM RPA - IBM Robotic Process Automation</h2> 
 
 <p align="center">
    <img src="http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=RED&style=for-the-badge"/>
  <!--  <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>-->
 </p>
 
-> Status do Projeto: :heavy_check_mark: :warning: em desenvolvimento
 
 ### Tópicos 
 
@@ -24,21 +24,25 @@
 
 ... 
 
-Insira os tópicos do README em links para facilitar a navegação do leitor
 
 ## Introdução 
 
 <p align="justify">
-   Quando uma empresa inicia a sua Jornada de Automação de Processos, normalmente ela não possui documentação de boas práticas para ser seguida como padrão dos projetos a serem implementados, muito menos um script base, com uma estrutura inicial criada para o inicio do desenvolvimento dos seus bots.
-   Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus bots, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
+   Quando uma empresa inicia a sua Jornada de Automação de Processos, normalmente ela não possui documentação de boas práticas para ser seguida como padrão dos projetos a serem implementados, muito menos um script base, com uma estrutura inicial criada para o inicio do desenvolvimento dos seus bots.<br />  
+	Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus bots, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
 </p>
 
 ## Monitoramento
 
 <p align="justify">
-   	No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter um banco de dados para ser utilizado nos projetos. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o uso do IBM RPA, por conta de suas políticas internas. Por conta deste cenário neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite. Caso tenha uma instância de banco de dados disponível, basta apenas trocar o comando de conexão com o banco de dados.
+   	No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter um banco de dados para ser utilizado nos projetos. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o uso do IBM RPA, por conta de suas políticas internas. Por conta deste cenário neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite. Caso tenha uma instância de banco de dados disponível, basta apenas trocar o comando de conexão com o banco de dados. <br />
 	Outra vantagem do uso do SQLite, é que o IBM RPA já tem um comando para criar o arquivo do database, e a estratura da tabela. Sendo necessário a instalação apenas de um leitor de SqLite para acompanhamento dos registros.
 </p>
+
+<h5><designer></h5>
+	
+![image](https://user-images.githubusercontent.com/46223364/197344583-f2d167f6-fe7d-49aa-a956-7924ab76ab36.png)
+
 
 ## Estrutura Data Base 
 
@@ -101,111 +105,75 @@ Nesta imagem podemos visualizar a query e as variaveis do script que serão inse
 
 	![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
 
+## Monitoramento
+
+Abaixo podemos ver um screenshot da tabela de log dos registros que executaram com sucesso.
+	
+<h5><completed></h5>
+
+![image](https://user-images.githubusercontent.com/46223364/197344997-38cf2d4b-d54c-49e3-9cbe-f22f91fbb342.png)
+
+Nesta já podemos ver os casos de falhas, aonde as colunas de erro são preenchidas.
+	
+<h5><failed></h5>
+	
+![image](https://user-images.githubusercontent.com/46223364/197345234-a5b97305-078f-4aeb-b623-ba4d4fbbcb8c.png)
+
+Por mais simples que seja esta estrutura de tabela do log, ela é muito util para o acompanhamento diario dos projetos, facilitando encontrar erro e idêntificar o processo que apresentou a falha, além de ter a mensagem de erro, linha e o screenshot da tela no momento do erro.	
 	
 ## Estrutura do Tratamento de erro 	
 	
-![image](https://user-images.githubusercontent.com/46223364/196754693-3bbef8da-6ce3-4ee8-840f-c59dcdb4ecfd.png)
+Agora que temos a base de dados e o rastreamento, vamos verificar como eu trato o cenário de falha. 
+	
+Cada projeto tem sua particularidade, este modelo é ideal para cenários que pode reprocessar o item que apresentou falha do inicio. Ou seja, não importa aonde quebrou, volta no inicio e tenta novamente.
+	
+	Esta estrutura é ideal para Projetos que utiliza a Feature do Orquestrador de Processos do IBM RPA. 
+	Que ao apresentar falha na execução, retente, ao invés de para a execução da instância na primeira falha.
+	
 
+	
+![image](https://user-images.githubusercontent.com/46223364/197346021-16421c2d-7af3-4f63-85ee-28ed37e226f1.png)
+        
+[Initialize] - Rotina responsavel por carregar e atribuir todos os valores utlizados pelo script:   
+ - Parametros;
+ - Definição de variáveis;
+- Conexões com serviços externos;
+- Criação de recursos necesários para execução do script;
+      
+        
+[Execute] - Rotina responsável por conter toda a estrutura de exeucção do processo.
+        
+        
+[__ErrorHandling] - Rotina responsável para realizar as etapas do tratamento de erro      
+- Capturar a mensagem de erro e escrever no log
+- Capturar a imagem da tela e salvar
+- Reiniciar algum sistema, se necessário
+- Validar se ocorreu menos de 3 tentativas de erro
+        - Se sim, chama a rotina Execute novamente
+        - senão, finaliza a execução com falha
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+:warning: 	
+	
+:heavy_check_mark:	
+	
+:memo: Tarefa 3 	
+	
+- [React PDF](https://react-pdf.org/)	
+	
 	
 =====
 
-## Funcionalidades
-
-:heavy_check_mark: Funcionalidade 1  
-
-:heavy_check_mark: Funcionalidade 2  
-
-:heavy_check_mark: Funcionalidade 3  
-
-:heavy_check_mark: Funcionalidade 4  
-
-## Layout ou Deploy da Aplicação :dash:
-
-> Link do deploy da aplicação. Exemplo com netlify: https://certificates-for-everyone-womakerscode.netlify.app/
-
-... 
-
-Se ainda não houver deploy, insira capturas de tela da aplicação ou gifs
-
-## Pré-requisitos
-
-:warning: [Node](https://nodejs.org/en/download/)
-
-...
-
-Liste todas as dependencias e libs que o usuário deve ter instalado na máquina antes de rodar a aplicação 
-
-## Como rodar a aplicação :arrow_forward:
-
-No terminal, clone o projeto: 
-
-```
-git clone https://github.com/React-Bootcamp-WoMarkersCode/certificate-generator
-```
-
-... 
-
-Coloque um passo a passo para rodar a sua aplicação. **Dica: clone o próprio projeto e verfique se o passo a passo funciona**
-
-## Como rodar os testes
-
-Coloque um passo a passo para executar os testes
-
-```
-$ npm test, rspec, etc 
-```
-
-## Casos de Uso
-
-Explique com mais detalhes como a sua aplicação poderia ser utilizada. O uso de **gifs** aqui seria bem interessante. 
-
-Exemplo: Caso a sua aplicação tenha alguma funcionalidade de login apresente neste tópico os dados necessários para acessá-la.
-
-## JSON :floppy_disk:
-
-### Usuários: 
-
-|name|email|password|token|avatar|
-| -------- |-------- |-------- |-------- |-------- |
-|Lais Lima|laislima98@hotmail.com|lais123|true|https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcS9-U_HbQAipum9lWln3APcBIwng7T46hdBA42EJv8Hf6Z4fDT3&usqp=CAU|
-
-... 
-
-Se quiser, coloque uma amostra do banco de dados 
-
-## Iniciando/Configurando banco de dados
-
-Se for necessário configurar algo antes de iniciar o banco de dados insira os comandos a serem executados 
-
-## Linguagens, dependencias e libs utilizadas :books:
-
-- [React](https://pt-br.reactjs.org/docs/create-a-new-react-app.html)
-- [React PDF](https://react-pdf.org/)
-
-...
-
-Liste as tecnologias utilizadas no projeto que **não** forem reconhecidas pelo Github 
-
-## Resolvendo Problemas :exclamation:
-
-Em [issues]() foram abertos alguns problemas gerados durante o desenvolvimento desse projeto e como foram resolvidos. 
-
-## Tarefas em aberto
-
-Se for o caso, liste tarefas/funcionalidades que ainda precisam ser implementadas na sua aplicação
-
-:memo: Tarefa 1 
-
-:memo: Tarefa 2 
-
-:memo: Tarefa 3 
-
-## Desenvolvedores/Contribuintes :octocat:
-
-Liste o time responsável pelo desenvolvimento do projeto
-
-| [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |  [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |  [<img src="https://avatars2.githubusercontent.com/u/46378210?s=400&u=071f7791bb03f8e102d835bdb9c2f0d3d24e8a34&v=4" width=115><br><sub>Diana Regina</sub>](https://github.com/Diana-ops) |
-| :---: | :---: | :---: 
 
 ## Licença 
 
