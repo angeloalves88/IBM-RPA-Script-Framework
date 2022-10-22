@@ -132,26 +132,32 @@ Cada projeto tem sua particularidade, este modelo é ideal para cenários que po
 	
 
 	
-![image](https://user-images.githubusercontent.com/46223364/197346021-16421c2d-7af3-4f63-85ee-28ed37e226f1.png)
+![image](https://user-images.githubusercontent.com/46223364/197346753-387ed76d-c8d5-4022-87ff-1d9828b32428.png)
         
 [Initialize] - Rotina responsavel por carregar e atribuir todos os valores utlizados pelo script:   
- - Parametros;
- - Definição de variáveis;
-- Conexões com serviços externos;
+- Obter Parametros;
+- Definição de variáveis;
+- Conexões com serviços externos (e-mail, provedores de fila, banco de dados);
 - Criação de recursos necesários para execução do script;
-      
+     
+![image](https://user-images.githubusercontent.com/46223364/197346890-7d6a5493-4dc7-4ab2-8754-323062acff8c.png)
+
         
 [Execute] - Rotina responsável por conter toda a estrutura de exeucção do processo.
         
-        
-[__ErrorHandling] - Rotina responsável para realizar as etapas do tratamento de erro      
+![image](https://user-images.githubusercontent.com/46223364/197347369-15b7c32a-4716-4039-84db-ed1770c02e03.png)
+  
+	
+[__ErrorHandling] - Rotina responsável para realizar o tratamento de erro   
+- Capturar a imagem da tela e salvar   
 - Capturar a mensagem de erro e escrever no log
-- Capturar a imagem da tela e salvar
-- Reiniciar algum sistema, se necessário
-- Validar se ocorreu menos de 3 tentativas de erro
+- Limpa as variaveis de erro do log
+- Reiniciar algum sistema, por exemplo fechar e abrir o aplicação/navegador, chamar a rotina que faz login, ....
+- Validar se ocorreu menos de 3 tentativas de falha
         - Se sim, chama a rotina Execute novamente
         - senão, finaliza a execução com falha
 
+![image](https://user-images.githubusercontent.com/46223364/197346987-9ff09e46-2067-4cae-aa96-38b2643fd85d.png)
 
 	
 	
