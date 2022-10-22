@@ -1,7 +1,6 @@
-# IBM-RPA
-IBM Robotic Process Automation
+# IBM RPA - IBM Robotic Process Automation
 
-<h1>Modelo base de Script</h1> 
+<h1>Template para desenvolvimento</h1> 
 <h3>Contém tratamento de erro e base de dados para log</h3> 
 
 <p align="center">
@@ -37,30 +36,34 @@ Insira os tópicos do README em links para facilitar a navegação do leitor
 ## Monitoramento
 
 <p align="justify">
-   No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter um banco de dados para ser utilizado nos projetos. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o uso do IBM RPA, por conta de suas políticas internas. Por conta deste cenário neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite. Caso tenha uma instância de banco de dados disponível, basta apenas trocar o comando de conexão com o banco de dados.
+   	No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter um banco de dados para ser utilizado nos projetos. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o uso do IBM RPA, por conta de suas políticas internas. Por conta deste cenário neste documento vou demonstrar como utilizar uma base de dados local utilizando o Sqlite. Caso tenha uma instância de banco de dados disponível, basta apenas trocar o comando de conexão com o banco de dados.
+	Outra vantagem do uso do SQLite, é que o IBM RPA já tem um comando para criar o arquivo do database, e a estratura da tabela. Sendo necessário a instalação apenas de um leitor de SqLite para acompanhamento dos registros.
 </p>
 
 ## Estrutura Data Base 
 
+Como a ideia deste primeiro material é ter algo simples e de facil implementação para novos empresas que estão aderindo ao IBM RPA, estaremos utilizando apenas uma tabela de log. Está tabela pode ser utilizada por mais de um projeto/script por conta das colunas para aplicar filtros.
+Abaixo esta a query de criação da tabela, 
+
 ```
 CREATE TABLE IBMRPA_LOG (
-    ID              INTEGER       PRIMARY KEY AUTOINCREMENT,
-    LOGDATE         DATETIME      NOT NULL,
-    PROJECT         INTEGER       NOT NULL,
-    SCRIPT          INTEGER       NOT NULL,
-    LOGTYPE         VARCHAR       NOT NULL,
-    REGISTERID      VARCHAR,
-    MESSAGE         VARCHAR (255) NOT NULL,
-    ERRORSUBROUTINE VARCHAR,
-    ERRORLINE       INTEGER,
-    ERRORMESSAGE    VARCHAR,
-    PATHSCREENSHOT  VARCHAR
+    ID              INTEGER       PRIMARY KEY AUTOINCREMENT,		/* identificador do registro */
+    LOGDATE         DATETIME      NOT NULL,				/* data e hora do registro*/
+    PROJECT         INTEGER       NOT NULL,				/* nome do projeto*/
+    SCRIPT          INTEGER       NOT NULL,				/* nome do script*/
+    LOGTYPE         VARCHAR       NOT NULL,				/* tipo do log INFO/WARN/ERROR*/
+    REGISTERID      VARCHAR,						/* identificador do registro que esta sendo executado*/
+    MESSAGE         VARCHAR (255) NOT NULL,				/* mensagem para ser registrada*/
+    ERRORSUBROUTINE VARCHAR,						/* Em caso de erro: A rotina que apresentou erro*/
+    ERRORLINE       INTEGER,						/* Em caso de erro: A linha que apresentou erro*/
+    ERRORMESSAGE    VARCHAR,						/* Em caso de erro: A mensagem do erro*/
+    PATHSCREENSHOT  VARCHAR						/* Em caso de erro: O caminho que foi salvo o screenshot*/
 );
 ```
 
 ## Estrutura do Script  
 
-Será utilizado esta rotina toda a vez que formos registrar alguma mensagem no log, basicamente obtem a data/hora atual, conecta no DB e executa a query com os dados recebidos na chamada da sub rotina.
+Temos a rotina "RegisteringLog" que é responsável por registrar todas mensagem no DB, basicamente obtem a data/hora atual, conecta no DB e executa a query com os dados recebidos na chamada da sub rotina e desconecta do DB.
 
 <h5><script></h5>
 
@@ -79,10 +82,12 @@ endSub
 ![image](https://user-images.githubusercontent.com/46223364/196575429-69d51812-0465-481a-bd8e-75276de4e147.png)
 
 
-A query com os variaveis que serão inseridos na tabela.
+Nesta imagem podemos visualizar a query e as variaveis do script que serão inseridos na tabela.
 
-	![image](https://user-images.githubusercontent.com/46223364/196576959-43c0dcce-bd38-42d8-b2ca-0a747c541e55.png)
+	
+![image](https://user-images.githubusercontent.com/46223364/196576959-43c0dcce-bd38-42d8-b2ca-0a747c541e55.png)
 
+	
 - dateTimeNow > Obtem o valor toda a vez que é executado a rotina
 - _project and _script > Definido na rotina Initializing
 
@@ -99,7 +104,7 @@ A query com os variaveis que serão inseridos na tabela.
 	
 ## Estrutura do Tratamento de erro 	
 	
-	![image](https://user-images.githubusercontent.com/46223364/196754693-3bbef8da-6ce3-4ee8-840f-c59dcdb4ecfd.png)
+![image](https://user-images.githubusercontent.com/46223364/196754693-3bbef8da-6ce3-4ee8-840f-c59dcdb4ecfd.png)
 
 	
 =====
