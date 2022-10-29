@@ -10,6 +10,15 @@
 </p>
 
 
+## Introdução 
+
+<p align="justify">
+   Quando uma empresa inicia a sua Jornada de Automação de Processos, normalmente ela não possui documentação de boas práticas para ser seguida como padrão dos projetos a serem implementados, muito menos um script base, com uma estrutura inicial criada para o inicio do desenvolvimento dos seus bots.<br />  
+	Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus bots, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
+</p>
+
+
+
 ### Tópicos 
 
 :small_blue_diamond: [Descrição do projeto](#descrição-do-projeto)
@@ -24,13 +33,17 @@
 
 ... 
 
+| [ExecutionArchitectureAndErrorHandling](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/ExecutionArchitectureAndErrorHandling.md) | [Database Structure](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/DatabaseStructure.md) | [Monitoring]([/Agenda/%5BCP4BA%20Tech%20Jam%202022.10.25%5D%20Americas%20Agenda.pdf](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/Monitoring.md)) |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
-## Introdução 
 
-<p align="justify">
-   Quando uma empresa inicia a sua Jornada de Automação de Processos, normalmente ela não possui documentação de boas práticas para ser seguida como padrão dos projetos a serem implementados, muito menos um script base, com uma estrutura inicial criada para o inicio do desenvolvimento dos seus bots.<br />  
-	Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus bots, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
-</p>
+======================
+
+
+
+
+
+
 
 ## Monitoramento
 
