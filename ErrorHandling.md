@@ -1,5 +1,5 @@
 
-# Error Handling
+# Execution Architecture and Error Handling
 
 	
 <h2>IBM RPA - IBM Robotic Process Automation</h2> 
@@ -34,7 +34,8 @@ Cada projeto tem sua particularidade, este modelo é ideal para cenários que po
 [Execute] - Rotina responsável por conter toda a estrutura de exeucção do processo.
         
 ![image](https://user-images.githubusercontent.com/46223364/197347369-15b7c32a-4716-4039-84db-ed1770c02e03.png)
-  
+ 
+## Error Handling
 	
 [__ErrorHandling] - Rotina responsável para realizar o tratamento de erro   
 - Capturar a imagem da tela e salvar   
