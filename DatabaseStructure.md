@@ -69,3 +69,28 @@ Nesta imagem podemos visualizar a query e as variaveis do script que serão inse
 - _logErrorSubRoutine, _logErrorLine, _logErrorMessage, and _logPathScreenshot > Informado no comando 'Run SubRoutine(goSub)' da rotina __ErrorHandling
 
 	![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
+	
+	
+	
+	
+```mermaid
+sequenceDiagram
+Alice ->> Bob: Hello Bob, how are you?
+Bob-->>John: How about you John?
+Bob--x Alice: I am good thanks!
+Bob-x John: I am good thanks!
+Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
+
+Bob-->Alice: Checking with John...
+Alice->John: Yes... John, how are you?
+```
+
+And this will produce a flow chart:
+
+```mermaid
+graph LR
+A[Square Rect] -- Link text --> B((Circle))
+A --> C(Round Rect)
+B --> D{Rhombus}
+C --> D
+```
