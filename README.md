@@ -12,7 +12,7 @@
 
 <p align="justify">
    Quando uma empresa inicia a sua Jornada de Automação de Processos, normalmente ela não possui documentação de boas práticas para ser seguida como padrão dos projetos a serem implementados, muito menos um script base, com uma estrutura inicial criada para o inicio do desenvolvimento dos seus bots.<br />  
-	Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus bots, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
+	Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus scripts, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
 </p>
 
 
