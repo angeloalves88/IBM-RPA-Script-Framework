@@ -34,7 +34,7 @@ CREATE TABLE IBMRPA_LOG (
 
 Temos a rotina "RegisteringLog" que é responsável por registrar todas mensagem no DB, basicamente obtem a data/hora atual, conecta no DB e executa a query com os dados recebidos na chamada da sub rotina e desconecta do DB.
 
-<h5><script></h5>
+<h5>script</h5>
 
 ```
 beginSub --name __RegisteringLog
@@ -46,7 +46,7 @@ beginSub --name __RegisteringLog
 endSub
 ```
 	
-<h5><designer></h5>
+<h5>Designer</h5>
 	
 ![image](https://user-images.githubusercontent.com/46223364/196575429-69d51812-0465-481a-bd8e-75276de4e147.png)
 
@@ -56,7 +56,7 @@ Nesta imagem podemos visualizar a query e as variaveis do script que serão inse
 	
 ![image](https://user-images.githubusercontent.com/46223364/196576959-43c0dcce-bd38-42d8-b2ca-0a747c541e55.png)
 
-# As variaveis
+# Variaveis
 	
 - `${dateTimeNow}` > Obtida pelo comando 'Get current date and time' toda a vez que é executado a rotina
 - `${_project}` and `${_script}` > Definido na rotina Initializing
