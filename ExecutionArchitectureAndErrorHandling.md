@@ -10,7 +10,7 @@
 
 ## Execution Architecture 	
 	
-Agora que temos a base de dados e o rastreamento, vamos verificar como eu trato o cenário de falha. 
+Agora que já expliquei a base de dados e o monitoramento, vamos verificar como eu organizo meu script e como eu trato o cenário de falha. 
 	
 Cada projeto tem sua particularidade, este modelo é ideal para cenários que pode reprocessar o item que apresentou falha do inicio. Ou seja, não importa aonde quebrou, volta no inicio e tenta novamente.
 	
@@ -21,7 +21,7 @@ Cada projeto tem sua particularidade, este modelo é ideal para cenários que po
 	
 ![image](https://user-images.githubusercontent.com/46223364/197346753-387ed76d-c8d5-4022-87ff-1d9828b32428.png)
         
-[Initialize] - Rotina responsavel por carregar e atribuir todos os valores utlizados pelo script:   
+`[Initialize]` - Rotina responsavel por carregar e atribuir todos os valores utlizados pelo script:   
 - Obter Parametros;
 - Definição de variáveis;
 - Conexões com serviços externos (e-mail, provedores de fila, banco de dados);
@@ -30,13 +30,13 @@ Cada projeto tem sua particularidade, este modelo é ideal para cenários que po
 ![image](https://user-images.githubusercontent.com/46223364/197346890-7d6a5493-4dc7-4ab2-8754-323062acff8c.png)
 
         
-[Execute] - Rotina responsável por conter toda a estrutura de exeucção do processo.
+`[Execute]` - Rotina responsável por conter toda a estrutura de exeucção do processo.
         
 ![image](https://user-images.githubusercontent.com/46223364/197347369-15b7c32a-4716-4039-84db-ed1770c02e03.png)
  
 ## Error Handling
 	
-[__ErrorHandling] - Rotina responsável para realizar o tratamento de erro   
+`[__ErrorHandling]` - Rotina responsável para realizar o tratamento de erro   
 - Capturar a imagem da tela e salvar   
 - Capturar a mensagem de erro e escrever no log
 - Limpa as variaveis de erro do log
