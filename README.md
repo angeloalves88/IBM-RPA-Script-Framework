@@ -31,7 +31,7 @@
 
 ... 
 
-| [ExecutionArchitectureAndErrorHandling](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/ExecutionArchitectureAndErrorHandling.md) | [Database Structure](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/DatabaseStructure.md) | [Monitoring]([/Agenda/%5BCP4BA%20Tech%20Jam%202022.10.25%5D%20Americas%20Agenda.pdf](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/Monitoring.md)) |
+| [ExecutionArchitectureAndErrorHandling](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/ExecutionArchitectureAndErrorHandling.md) | [Database Structure](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/DatabaseStructure.md) | [Monitoring](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/Monitoring.md) |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 
 
