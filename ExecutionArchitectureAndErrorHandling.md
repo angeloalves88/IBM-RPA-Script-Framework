@@ -21,11 +21,15 @@ Cada projeto tem sua particularidade, este modelo é ideal para cenários que po
 	
 ![image](https://user-images.githubusercontent.com/46223364/197346753-387ed76d-c8d5-4022-87ff-1d9828b32428.png)
         
-`[Initialize]` - Rotina responsavel por carregar e atribuir todos os valores utlizados pelo script:   
+`[Initialize]` - Rotina responsavel por carregar e atribuir todos os valores utlizados pelo script no decorrer da execução:   
 - Obter Parametros;
-- Definição de variáveis;
+- Obter Credênciais;
+- Definições de variáveis;
 - Conexões com serviços externos (e-mail, provedores de fila, banco de dados);
-- Criação de recursos necesários para execução do script;
+- Validação de recursos necessários para execução do script:
+- 	Caminhos de rede;
+- 	Arquivos;
+- 	entre outros.
      
 ![image](https://user-images.githubusercontent.com/46223364/197346890-7d6a5493-4dc7-4ab2-8754-323062acff8c.png)
 
