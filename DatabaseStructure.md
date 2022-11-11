@@ -11,7 +11,7 @@
 
 ## Estrutura Data Base 
 
-Como a ideia deste primeiro material é ter algo simples e de facil implementação para novos empresas que estão aderindo ao IBM RPA, estaremos utilizando apenas uma tabela de log. Está tabela pode ser utilizada por mais de um projeto/script por conta das colunas para aplicar filtros.
+Como a ideia deste material é ter algo simples e de facil implementação para novos clientes que estão aderindo ao IBM RPA, estaremos utilizando apenas uma tabela de log. Está tabela pode ser utilizada por mais de um projeto/script por conta das colunas Project and Script.
 Abaixo esta a query de criação da tabela, 
 
 ```
@@ -56,41 +56,20 @@ Nesta imagem podemos visualizar a query e as variaveis do script que serão inse
 	
 ![image](https://user-images.githubusercontent.com/46223364/196576959-43c0dcce-bd38-42d8-b2ca-0a747c541e55.png)
 
+# As variaveis
 	
-- dateTimeNow > Obtem o valor toda a vez que é executado a rotina
-- _project and _script > Definido na rotina Initializing
+- `${dateTimeNow}` > Obtida pelo comando 'Get current date and time' toda a vez que é executado a rotina
+- `${_project}` and `${_script}` > Definido na rotina Initializing
 
 	![image](https://user-images.githubusercontent.com/46223364/196580625-f0e4354c-9357-4a09-b624-f9cd547a620f.png)
 
-- _logType, _registerId and _logMessage > Informado no comando 'Run SubRoutine(goSub)'
+- `${_logType}`, `${_registerId}`, and `${_logMessage}` > Informado no comando 'Run SubRoutine(goSub)'
 
 	![image](https://user-images.githubusercontent.com/46223364/196580558-cbf7acc1-add6-4d95-8a05-829b5c1e501f.png)
 
-- _logErrorSubRoutine, _logErrorLine, _logErrorMessage, and _logPathScreenshot > Informado no comando 'Run SubRoutine(goSub)' da rotina __ErrorHandling
+- `${_logErrorSubRoutine}`, `${_logErrorLine}`, `${_logErrorMessage}`, and `${_logPathScreenshot}` > Informado no comando 'Run SubRoutine(goSub)' da rotina __ErrorHandling
 
 	![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
 	
 	
 	
-	
-```mermaid
-sequenceDiagram
-Alice ->> Bob: Hello Bob, how are you?
-Bob-->>John: How about you John?
-Bob--x Alice: I am good thanks!
-Bob-x John: I am good thanks!
-Note right of John: Bob thinks a long<br/>long time, so long<br/>that the text does<br/>not fit on a row.
-
-Bob-->Alice: Checking with John...
-Alice->John: Yes... John, how are you?
-```
-
-And this will produce a flow chart:
-
-```mermaid
-graph LR
-A[Square Rect] -- Link text --> B((Circle))
-A --> C(Round Rect)
-B --> D{Rhombus}
-C --> D
-```
