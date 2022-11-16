@@ -12,7 +12,7 @@
 
 <p align="justify">
    When a business starts their Robotic Process Automation journey, they usually don't have any sort of documentation for best practices to be followed as a stardard for their projects, much less an automation script to be used as basis for their early development efforts.<br />  
-	Neste documento vou demonstrar e disponibilizar um modelo de script para ser utilizado como base dos seus scripts, com tratamento de erro, um log de monitoramento local, e vou aproveitar para falar do meu padrão de nomenclatura de scripts, rotinas, e variaveis. 
+	In this Git, I,m providing a script model to be used as a basis for your early RPA development efforts, with structured routines for error handling, registering logs, creating directories, creating and connecting to databases, among others. I'll demonstrate the usage of these structures and also speak about my naming standards for scripts, routines and variables. 
 </p>
 
 
