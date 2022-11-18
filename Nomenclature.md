@@ -8,9 +8,9 @@
 	
 <h2>IBM RPA - IBM Robotic Process Automation</h2> <br /><br />
 
-## Standardization
+## Set a Standard
 
-Para manter um ambiente organizado e facilitando a manutenção é muito importante ter um padrão de nomenclatura para ser seguido no projeto. Com este padrão agiliza o entendimento por outras pessoas do time em caso de manutenção ou melhorias. 
+Para manter um ambiente organizado e facilitando a manutenção é muito importante ter um padrão de nomenclatura para ser seguido no projeto. Existindo um padrão agiliza o entendimento por outras membros do time em caso de manutenção ou melhorias. 
 se prestou atenção, nos exemplos deste framework é possível visualizar alguns padrões, que vamos abordar abaixo com mais detalhes.
 
 ## Script Name
