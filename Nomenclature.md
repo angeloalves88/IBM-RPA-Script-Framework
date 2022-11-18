@@ -34,7 +34,7 @@ Além dos scripts especificos do Projeto, temos scripts genéricos que podem ser
 
 ## Sub-Routine Name
 
-Na Sub-Rotina também utilizo o Camel Case, removo as preposições e troco os espaços por _ (underline)
+Na Sub-Rotina também utilizo o Camel Case, removo as preposições e os espaços.
 
 - Execute
 - Inicializing
@@ -42,13 +42,13 @@ Na Sub-Rotina também utilizo o Camel Case, removo as preposições e troco os e
 Como pode ser observado no script de amostra, temos algumas rotinas que inicio com `__` (2x underline), isto é um padrão meu, que aplico para saber:
 
 - Que esta rotina é tipo uma classe do meu script e eu utilizo elas várias vezes no meu script;
-  - `__CreatingDirectory` and `__RegisteringLog` normalmente estas rotinas recebem algum valor para de entrada.
-- Que é uma rotina base do meu script
+  - `__CreatingDirectory` and `__RegisteringLog` normalmente estas rotinas recebem algum valor como parametro de entrada.
+- Que é uma rotina base da minha estrutura de script
   - `__ErrorHandling` and `__CreatingDatabase`
 
 ## Variable Name
 
-Enquanto para os nomes de variaveis eu utilizo o low Camel Case, também removo as preposições e espaços
+Enquanto para os nomes de variaveis eu utilizo o low Camel Case e também removo as preposições e espaços
 
 - linha da tabela >> rowTable
 - first name >> firstName
@@ -65,4 +65,7 @@ Uma outra possibilidade é agrupar variaveis, como no exemplo todas as variaveis
 - lastNameJson
 - addresJson
 
-E por ultimo temos as variaveis que eu utilizo elas apenas para aplicar alguma ação, ou dentro de uma sub-rotina
+Tenho também as variáveis que iniciam com `_`(underline) que são utilizadas para:
+- Armazenar valores temporoarios para aplicar alguma ação, como obter o texto bruto para eu remover apenas a parte necessaria posteriormente;
+- Dentro de uma sub-rotina, como por exemplo de conversão do formato de data e hora;
+- Variaveis da estrutura do meu script
