@@ -33,8 +33,8 @@
 
 ## Licença 
 
-The [MIT License]() (MIT)
+[LinkedIn](https://www.linkedin.com/notifications/?filter=all)
 
-Copyright :copyright: Ano - Titulo do Projeto
+Copyright :copyright: 2023 - Framework to development
 
 	
