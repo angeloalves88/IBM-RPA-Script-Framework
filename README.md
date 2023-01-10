@@ -19,9 +19,9 @@
 
 ### Tópicos 
 
-:small_blue_diamond: [Execution Architecture And Error Handling](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/ExecutionArchitectureAndErrorHandling.md)
-
 :small_blue_diamond: [Database and Script Structure](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/DatabaseStructure.md)
+
+:small_blue_diamond: [Execution Architecture And Error Handling](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/ExecutionArchitectureAndErrorHandling.md)
 
 :small_blue_diamond: [Monitoring](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/Monitoring.md)
 
