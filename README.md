@@ -27,9 +27,7 @@
 
 :small_blue_diamond: [Nomenclature](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/Nomenclature.md)
 
-... 
 
-======================
 
 ## Licença 
 
