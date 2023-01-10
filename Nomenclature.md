@@ -68,3 +68,6 @@ I also have variables that start with `_`(underscore) that are used for:
 - Store temporary values to apply some action, such as getting the raw text so I can remove only the necessary part later;
 - Within a subroutine, such as converting the date and time format;
 - Variables of the structure of my script
+
+:small_blue_diamond: [Back to Readme](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/README.md)
+
