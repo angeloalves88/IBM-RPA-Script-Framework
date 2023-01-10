@@ -71,4 +71,4 @@ In this image, we can visualize the query and the script variables that will be 
 	![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
 	
 	
-	
+:small_blue_diamond: [Back to Readme](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/README.md)	
