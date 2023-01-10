@@ -1,0 +1,114 @@
+«1defVar --name success --type Boolean
+defVar --name conBd --type DbConnection
+defVar --name resultSelect --type DataTable
+defVar --name pathDataBase --type String
+defVar --name insertedRows --type Numeric
+defVar --name dateTimeNow --type DateTime
+defVar --name _project --type String
+defVar --name _script --type String
+defVar --name _logType --type String
+defVar --name _registerId --type String
+defVar --name _logMessage --type String
+defVar --name _logErrorSubRoutine --type String
+defVar --name _logErrorLine --type Numeric
+defVar --name _logErrorMessage --type String
+defVar --name _logPathScreenshot --type String
+defVar --name screenshot --type Image
+defVar --name pathDefault --type String
+defVar --name _text --type String
+defVar --name listText --type List --innertype String
+defVar --name _attemps --type Numeric
+defVar --name result --type Boolean
+defVar --name excel --type Excel
+defVar --name dataTable --type DataTable
+defVar --name row --type Numeric
+defVar --name origenCompany --type String
+defVar --name item_n --type String
+defVar --name employeeNo --type String
+defVar --name ControlExec --type String
+goSub --label Initializing
+
+goSub --label Execute --assignments "${_attemps}=0,${row}=1"
+beginSub --name __RegisteringLog
+replaceText --texttoparse "${_logMessage}" --textpattern "\'" _logMessage=value
+getCurrentDateAndTime --localorutc "LocalTime" dateTimeNow=value
+sqliteConnect --connectionString "Data Source=${pathDataBase};Version=3;" conBd=connection success=success
+sqlExecute --connection ${conBd} --statement "INSERT INTO IBMRPA_LOG (\r\n   LOGDATE, PROJECT, SCRIPT,\r\n   LOGTYPE,REGISTERID,MESSAGE,\r\n   ERRORSUBROUTINE,ERRORLINE,\r\n   ERRORMESSAGE,PATHSCREENSHOT\r\n)\r\nVALUES (\r\n   \'${dateTimeNow}\',\'${_project}\',\'${_script}\',\r\n   \'${_logType}\',\'${_registerId}\',\'${_logMessage}\',\r\n   \'${_logErrorSubRoutine}\',\'${_logErrorLine}\',\r\n   \'${_logErrorMessage}\',\'${_logPathScreenshot}\'\r\n);" insertedRows=value
+sqlDisconnect --connection ${conBd}
+endSub
+beginSub --name __CreatingDataBase
+if --left "${success}" --operator "Is_True" --negate 
+	sqliteConnect --createNew  --sql "CREATE TABLE IBMRPA_LOG (\r\n    ID              INTEGER       PRIMARY KEY AUTOINCREMENT,\r\n    LOGDATE         DATETIME      NOT NULL,\r\n    PROJECT         INTEGER       NOT NULL,\r\n    SCRIPT          INTEGER       NOT NULL,\r\n    LOGTYPE         VARCHAR       NOT NULL,\r\n    REGISTERID      VARCHAR,\r\n    MESSAGE         VARCHAR (255) NOT NULL,\r\n    ERRORSUBROUTINE VARCHAR,\r\n    ERRORLINE       INTEGER,\r\n    ERRORMESSAGE    VARCHAR,\r\n    PATHSCREENSHOT  VARCHAR\r\n);\r\n" --path "${pathDataBase}" conBd=connection success=success
+endIf
+endSub
+beginSub --name __ErrorHandling
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${employeeNo},${_logMessage}=Routine [${rpa:subName}]"
+
+printScreen screenshot=value
+saveImage --image ${screenshot} --directory "${pathDefault}" --createrandomfile  --format "Png" _logPathScreenshot=value
+goSub --label __RegisteringLog --assignments "${_logType}=ERROR,${_registerId}=${employeeNo},${_logMessage}=----,${_logErrorSubRoutine}=${rpa:error.Routine},${_logErrorLine}=${rpa:error.LineNumber},${_logErrorMessage}=${rpa:error.Message},${_logPathScreenshot}=${_logPathScreenshot}" --comment Error
+setVar --name "${_logErrorLine}"
+setVar --name "${_logErrorMessage}"
+setVar --name "${_logErrorSubRoutine}"
+setVar --name "${_logPathScreenshot}"
+
+//[YOUR CODE]
+
+//[END CODE]
+
+gosubIf --label Execute --left "${_attemps}" --operator "Less_Than" --right 3
+goSub --label __RegisteringLog --assignments "${_logType}=ERROR,${_registerId}=${employeeNo},${_logMessage}=More than 3 attempts. Stopping bot." --comment Error
+
+
+endSub
+beginSub --name __CreatingDirectory
+getCurrentDateAndTime --localorutc "LocalTime" dateTimeNow=value
+dateTimeToText --date "${dateTimeNow}" --usecustomformat  --customformat "yyyy,MM,dd" _text=value
+splitString --text "${_text}" --delimiteroption "CustomDelimiter" --customdelimiter "," listText=value
+foreach --collection "${listText}" --variable "${_text}"
+	ifFolder --path "${pathDefault}\\${_text}" success=value
+	if --left "${success}" --operator "Is_True" --negate 
+		createDir --path "${pathDefault}\\${_text}"
+	endIf
+	setVar --name "${pathDefault}" --value "${pathDefault}\\${_text}"
+endFor
+endSub
+beginSub --name Initializing
+setVar --name "${_project}" --value HR
+setVar --name "${_script}" --value HR_NewEmployee
+setVar --name "${pathDefault}" --value "C:\\IBM_RPA\\HR\\Employer\\"
+setVar --name "${pathDataBase}" --value "${pathDefault}\\log\\ibmrpa.db"
+goSub --label __CreatingDirectory --assignments "${_text}=${pathDefault}\\log"
+createRandomText --useuppercaseletters  --usedigits  --minimumlength 8 --maximumlength 8 ControlExec=value
+
+ifFile --file "${pathDataBase}" success=value
+gosubIf --label __CreatingDataBase --left "${success}" --operator "Is_True" --negate 
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=******,${_logMessage}=Start of execution"
+
+
+
+endSub
+beginSub --name Execute
+onError --label __ErrorHandling
+incrementVar --number ${_attemps}
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=----,${_logMessage}=Attemps [${_attemps}]"
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=----,${_logMessage}=Routine [${rpa:subName}]"
+
+//[YOUR CODE]
+
+setVar --name "${employeeNo}" --value 2023
+goSub --label RegisteringEmployee
+
+failTest --message "Error comand xpto"
+//[END CODE]
+
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=******,${_logMessage}=End of execution"
+stopExecution
+
+endSub
+beginSub --name RegisteringEmployee
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${employeeNo},${_logMessage}=Routine [${rpa:subName}]"
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${employeeNo},${_logMessage}=STEP 1"
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${employeeNo},${_logMessage}=STEP 2"
+goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${employeeNo},${_logMessage}=STEP 3"
+endSub*23.0.0.0
