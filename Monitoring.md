@@ -9,22 +9,22 @@
 <h2>IBM RPA - IBM Robotic Process Automation</h2> 
 
 <p align="justify">
-   	No IBM RPA existe várias formas de ter um log de monitoramento da execução, dentre elas a mais estruturada é ter um banco de dados para ser utilizado nos projetos. Mas as vezes nos deparamos com empresas aonde não tem uma base de dados disponível para o uso do IBM RPA, por conta de suas políticas internas. Por conta deste cenário neste documento vou demonstrar como utilizar uma base de dados local utilizando o [Sqlite](https://www.sqlite.org). Caso tenha uma instância de banco de dados disponível, basta trocar o comando de conexão com o banco de dados. <br />
-	Outra vantagem do uso do SQLite, é que o IBM RPA já tem um comando para criar o arquivo do database, e a estratura da tabela. Sendo necessário a instalação apenas de um leitor de SqLite para acompanhamento dos registros.
+   	In IBM RPA there are several ways to have an execution monitoring log, among them the most structured is to have a database to be used in projects. But sometimes we come across companies that do not have a database available for the use of IBM RPA, due to their internal policies. Because of this scenario in this document, I will demonstrate how to use a local database using [Sqlite](https://www.sqlite.org). If you have a database instance available, just change the database connection command. <br />
+	Another advantage of using SQLite is that IBM RPA already has a command to create the database file with the table structure. It is only necessary to install an SQLite reader to monitor the records.
 </p>
 
-## Monitoramento
+## Monitoring
 
-Abaixo podemos ver um screenshot da tabela de log dos registros que executaram com sucesso. Podemos observar na coluna `REGISTERID` o número do registro que está sendo processado, então facilmente conseguimos separar os blocos de log de cada item processado.
+Below we can see a screenshot of the log table of the records that were successfully executed. We can see in the `REGISTERID` column the number of the record that is being processed, so we can easily separate the log blocks of each processed item.
 	
 <h5><completed></h5>
 
 ![image](https://user-images.githubusercontent.com/46223364/197344997-38cf2d4b-d54c-49e3-9cbe-f22f91fbb342.png)
 
-Nesta já podemos ver os casos de falhas, aonde as colunas de erro são preenchidas. Facilitando a localização do erro, pela equipe de monitoramento.
+In this, we can already see the cases of failures, where the error columns are filled. Facilitating the location of the error by the monitoring team.
 	
 <h5><failed></h5>
 	
 ![image](https://user-images.githubusercontent.com/46223364/197345234-a5b97305-078f-4aeb-b623-ba4d4fbbcb8c.png)
 
-Por mais simples que seja esta estrutura de tabela do log, ela é muito util para o acompanhamento diario dos projetos, facilitando encontrar erro e idêntificar o processo que apresentou a falha, além de ter a mensagem de erro, linha e o screenshot da tela no momento do erro.	
+As simple as this log table structure is, it is very useful for the daily monitoring of projects, making it easier to find errors and identify the process that presented the failure, in addition to having the error message, line, and screen screenshot on the error time.	
