@@ -10,23 +10,22 @@
 
 ## Set a Standard
 
-Para manter um ambiente organizado e facilitando a manutenção é muito importante ter um padrão de nomenclatura para ser seguido no projeto. Existindo um padrão agiliza o entendimento por outras membros do time em caso de manutenção ou melhorias. 
-se prestou atenção, nos exemplos deste framework é possível visualizar alguns padrões, que vamos abordar abaixo com mais detalhes.
+To maintain an organized environment and facilitate maintenance, it is very important to have a naming pattern to be followed in the project. Having a standard streamlines understanding by other team members in case of maintenance or improvements. If you paid attention, to the examples of this framework it is possible to visualize some patterns, which we will discuss in more detail below.
 
 ## Script Name
 
-O padrão no script name que utilizo neste Git é Camel Case, removo as preposições e troco os espaços por _ (underline)
+The pattern in the script name that I use in this Git is Camel Case, I remove the prepositions and space or we can change the spaces to _ (underscore)
 
-- Cadastramento de invoice > CadastramentoInvoice
+- Invoice Registration > InvoiceRegistration
 
-Como podemos ter mais de um script para o mesmo processo automatizado é muito importante definir um prefixo para o nome do script de acordo com o nome do projeto. Normalmente oriento a utilizar o proprio nome do processo, mas em casos aonde o nome é muito extenso, podemos criar uma sigla. Uma outra alternativa é criar apelido para o projeto, isso vai muito da cultura da empresa.
+As we can have more than one script for the same automated process, it is very important to define a prefix for the script name according to the project name. Normally I recommend using the name of the process itself, but in cases where the name is too long, we can create an acronym. Another alternative is to create a nickname for the project, this depends a lot on the company's culture.
 
-Vamos ver alguns exemplos:
+Let's see some examples:
 
-- Cadastramento de produtos no SAP > SAP_CadastroProduto_
-- Cadastramentos de vendas de Pequenas e Medias Empresas > PME_
+- Registration of products in SAP > SAP_RegistrationProducts_
+- Registration of sales of Small and Medium Enterprises > SME_RegistrationSales_
 
-Além dos scripts especificos do Projeto, temos scripts genéricos que podem ser utilizados em mais de um projeto, por exemplo tenho 5 projetos que utilizam o SAP, então posso ter um único script de Login que os 5 projetos consome ele, facilitando a manutenção futura. O ideal é ter um padrão para o nome desses scripts visando ficar diferente dos projetos, vamos ver alguns cenários:
+In addition to the specific Project scripts, we have generic scripts that can be used in more than one project, for example, I have 5 projects that use SAP, so I can have a single Login script that the 5 projects consume, facilitating future maintenance. The ideal is to have a pattern for the name of these scripts in order to be different from the projects, let's see some scenarios:
 
 - moduleSendEmail
 - libLoginSAP
@@ -34,38 +33,38 @@ Além dos scripts especificos do Projeto, temos scripts genéricos que podem ser
 
 ## Sub-Routine Name
 
-Na Sub-Rotina também utilizo o Camel Case, removo as preposições e os espaços.
+In the Sub-Routine I also use Camel Case, I remove prepositions and spaces.
 
 - Execute
 - Inicializing
 
-Como pode ser observado no script de amostra, temos algumas rotinas que inicio com `__` (2x underline), isto é um padrão meu, que aplico para saber:
+As can be seen in the sample script, we have some routines that start with `__` (2x underscore), this is my pattern, which I apply to know:
 
-- Que esta rotina é tipo uma classe do meu script e eu utilizo elas várias vezes no meu script;
-  - `__CreatingDirectory` and `__RegisteringLog` normalmente estas rotinas recebem algum valor como parametro de entrada.
-- Que é uma rotina base da minha estrutura de script
+- That this routine is like a class in my script and I use them several times in my script;
+  - `__CreatingDirectory` and `__RegisteringLog` normally these routines receive some value as an input parameter.
+- Which is a base routine of my script structure
   - `__ErrorHandling` and `__CreatingDatabase`
 
 ## Variable Name
 
-Enquanto para os nomes de variaveis eu utilizo o low Camel Case e também removo as preposições e espaços
+While for variable names the lower Camel Case is used and I also remove prepositions and spaces
 
-- linha da tabela >> rowTable
+- table row >> rowTable
 - first name >> firstName
 
-Um ponto muito importante nas variaveis é tentar colocar um nome claro da sua função, evitar abreviações ou usar `${n1}` `${var1}` `${i}` `${row}`
+A very important point in the variables is to try to put a clear name of their use, avoiding abbreviations or using `${n1}` `${var1}` `${i}` `${row}`
 
 - ${rowInvoiceTable}
 - ${numberRegistering}
 - ${adressCustomer}
 
-Uma outra possibilidade é agrupar variaveis, como no exemplo todas as variaveis do log tem o prefixo `log`, um outro cenário é por exemplo, você está fazendo a leitura de um Json, e ao mapear os dados dele, pode utilizar o sufixo json, com isso facilita encontrar grupos de variaveis.
+Another possibility is to group variables, as in the example all log variables have the `log` prefix, another scenario is for example, you are reading a Json, and when mapping its data, you can use the JSON suffix, thus making it easier to find groups of variables.
 
 - firstNameJson
 - lastNameJson
 - addresJson
 
-Tenho também as variáveis que iniciam com `_`(underline) que são utilizadas para:
-- Armazenar valores temporoarios para aplicar alguma ação, como obter o texto bruto para eu remover apenas a parte necessaria posteriormente;
-- Dentro de uma sub-rotina, como por exemplo de conversão do formato de data e hora;
-- Variaveis da estrutura do meu script
+I also have variables that start with `_`(underscore) that are used for:
+- Store temporary values to apply some action, such as getting the raw text so I can remove only the necessary part later;
+- Within a subroutine, such as converting the date and time format;
+- Variables of the structure of my script
