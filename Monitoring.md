@@ -28,3 +28,8 @@ In this, we can already see the cases of failures, where the error columns are f
 ![image](https://user-images.githubusercontent.com/46223364/197345234-a5b97305-078f-4aeb-b623-ba4d4fbbcb8c.png)
 
 As simple as this log table structure is, it is very useful for the daily monitoring of projects, making it easier to find errors and identify the process that presented the failure, in addition to having the error message, line, and screen screenshot on the error time.	
+
+	
+:small_blue_diamond: [Back to Readme](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/README.md)
+	
+	
