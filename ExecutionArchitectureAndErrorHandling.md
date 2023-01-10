@@ -51,8 +51,9 @@ Each project has its particularity, this model is ideal for scenarios that can r
 
 ![image](https://user-images.githubusercontent.com/46223364/197346987-9ff09e46-2067-4cae-aa96-38b2643fd85d.png)
 
-	
-:small_blue_diamond: [Read me](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/README.md)	
+
+
+:small_blue_diamond: [Back to Readme](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/README.md)	
 	
 	
 	
