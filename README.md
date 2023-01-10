@@ -30,9 +30,9 @@
 
 ### Downloads 
 
-:small_blue_diamond: [Script Model](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/DatabaseStructure.md)
+:small_blue_diamond: [Script Model](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/scriptModel.wal)
 
-:small_blue_diamond: [Sqlite database](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/Monitoring.md)
+:small_blue_diamond: [Sqlite database](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/ibmrpa.db)
 
 
 ## Licença 
