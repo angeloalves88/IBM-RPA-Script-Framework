@@ -3,7 +3,7 @@
  <!--  <img src="http://img.shields.io/static/v1?label=STATUS&message=CONCLUIDO&color=GREEN&style=for-the-badge"/>-->
 </p>
 
-# Database and Script Structure
+# Database Structure
 
 	
 <h2>IBM RPA - IBM Robotic Process Automation</h2> 
