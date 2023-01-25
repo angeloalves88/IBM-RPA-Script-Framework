@@ -35,10 +35,9 @@
 :small_blue_diamond: [Sqlite database](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/ibmrpa.db)
 
 
-## Licença 
+## Follow me 
 
-[LinkedIn](https://www.linkedin.com/notifications/?filter=all)
+[LinkedIn](https://www.linkedin.com/in/angelo-alves-20985a33/)
 
-Copyright :copyright: 2023 - Framework to development
-
+I hope this material can help you, feel free to give feedback and follow me on LinkedIn.
 	
