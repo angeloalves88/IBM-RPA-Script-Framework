@@ -37,7 +37,7 @@
 
 ## Follow me 
 
-[LinkedIn](https://www.linkedin.com/in/angelo-alves-20985a33/)
 
-I hope this material can help you, feel free to give feedback and follow me on LinkedIn.
+
+I hope this material can help you, feel free to give feedback and follow me on [LinkedIn](https://www.linkedin.com/in/angelo-alves-20985a33/).
 	
