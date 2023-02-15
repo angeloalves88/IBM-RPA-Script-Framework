@@ -1,4 +1,4 @@
-«1defVar --name success --type Boolean
+defVar --name success --type Boolean
 defVar --name conBd --type DbConnection
 defVar --name resultSelect --type DataTable
 defVar --name pathDataBase --type String
@@ -111,4 +111,4 @@ goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${
 goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${employeeNo},${_logMessage}=STEP 1"
 goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${employeeNo},${_logMessage}=STEP 2"
 goSub --label __RegisteringLog --assignments "${_logType}=INFO,${_registerId}=${employeeNo},${_logMessage}=STEP 3"
-endSub*23.0.0.0
+endSub
