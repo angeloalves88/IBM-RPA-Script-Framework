@@ -38,6 +38,7 @@ I have the "RegisteringLog" routine responsible for registering all messages in 
 ```
 beginSub --name __RegisteringLog
 	replaceText --texttoparse "${_logMessage}" --textpattern "\'" _logMessage=value
+	replaceText --texttoparse "${_logErrorMessage}" --textpattern "\'" _logErrorMessage=value
 	getCurrentDateAndTime --localorutc "LocalTime" dateTimeNow=value
 	sqliteConnect --connectionString "Data Source=${pathDataBase};Version=3;" conBd=connection success=success
 	sqlExecute --connection ${conBd} --statement "INSERT INTO IBMRPA_LOG (\r\n   LOGDATE, PROJECT, SCRIPT,\r\n   LOGTYPE,REGISTERID,MESSAGE,\r\n   ERRORSUBROUTINE,ERRORLINE,\r\n   ERRORMESSAGE,PATHSCREENSHOT\r\n)\r\nVALUES (\r\n   \'${dateTimeNow}\',\'${_project}\',\'${_script}\',\r\n   \'${_logType}\',\'${_registerId}\',\'${_logMessage}\',\r\n   \'${_logErrorSubRoutine}\',\'${_logErrorLine}\',\r\n   \'${_logErrorMessage}\',\'${_logPathScreenshot}\'\r\n);" insertedRows=value
@@ -47,7 +48,7 @@ endSub
 	
 <h5>Designer</h5>
 	
-![image](https://user-images.githubusercontent.com/46223364/196575429-69d51812-0465-481a-bd8e-75276de4e147.png)
+![image](https://user-images.githubusercontent.com/46223364/219450961-014c086e-410f-4167-ac1f-a2c1a6b33d26.png)
 
 
 In this image, we can visualize the query and the script variables that will be inserted in the table.
