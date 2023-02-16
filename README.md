@@ -12,7 +12,7 @@
 
 <p align="justify">
 
-	When a business embarks on their Robotic Process Automation journey, they often lack any documentation or established best practices to guide their development efforts. This can lead to inconsistency and inefficiency, particularly in the early stages of RPA development.
+When a business embarks on their Robotic Process Automation journey, they often lack any documentation or established best practices to guide their development efforts. This can lead to inconsistency and inefficiency, particularly in the early stages of RPA development.
 
 To address this need, I've created a framework for RPA development that provides a solid foundation for automation projects. This framework includes a comprehensive script model, complete with structured routines for error handling, log registration, directory creation, database connectivity, and other key functions.
 
