@@ -8,7 +8,7 @@
 	
 <h2>IBM RPA - IBM Robotic Process Automation</h2> 
 
-## Introdução 
+## Introduction 
 
 <p align="justify">
    When a business starts their Robotic Process Automation journey, they usually don't have any sort of documentation for best practices to be followed as a stardard for their projects, much less an automation script to be used as basis for their early development efforts.<br />  
