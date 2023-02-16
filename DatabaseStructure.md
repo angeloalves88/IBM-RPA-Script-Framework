@@ -69,7 +69,7 @@ In this image, we can visualize the query and the script variables that will be 
 
 - `${_logErrorSubRoutine}`, `${_logErrorLine}`, `${_logErrorMessage}`, and `${_logPathScreenshot}` > Informed in the command 'Run SubRoutine(goSub)' from routine __ErrorHandling
 
-	![image](https://user-images.githubusercontent.com/46223364/196580398-0cad3d16-3076-4104-95aa-d03e23c9856e.png)
+	![image](https://user-images.githubusercontent.com/46223364/219451773-1f97dd3f-b8e4-468d-af3c-f68d6cf29355.png)
 	
 	
 :small_blue_diamond: [Back to Readme](https://github.com/angeloalves88/IBM-RPA-Script-Template/blob/main/README.md)	
