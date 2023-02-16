@@ -11,8 +11,15 @@
 ## Introduction 
 
 <p align="justify">
-   When a business starts their Robotic Process Automation journey, they usually don't have any sort of documentation for best practices to be followed as a stardard for their projects, much less an automation script to be used as basis for their early development efforts.<br />  
-	In this Git, I'm providing a script model to be used as a basis for your early RPA development efforts, with structured routines for error handling, registering logs, creating directories, creating and connecting to databases, among others. I'll demonstrate the usage of these structures and also speak about my naming standards for scripts, routines and variables. 
+
+	When a business embarks on their Robotic Process Automation journey, they often lack any documentation or established best practices to guide their development efforts. This can lead to inconsistency and inefficiency, particularly in the early stages of RPA development.
+
+To address this need, I've created a framework for RPA development that provides a solid foundation for automation projects. This framework includes a comprehensive script model, complete with structured routines for error handling, log registration, directory creation, database connectivity, and other key functions.
+
+In addition to sharing this script model, I'll also discuss my recommended naming conventions for scripts, routines, and variables. By adopting these standards, your team can more easily collaborate and maintain a consistent codebase across all of your automation projects.
+
+With this framework, you can jumpstart your RPA development efforts and build a solid foundation for your automation journey. I'm excited to share this resource with you and look forward to seeing the impact it has on your automation projects.
+	
 </p>
 
 
